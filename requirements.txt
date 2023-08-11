@@ -27,3 +27,9 @@ coverage==6.3.2
 
 # Utilities
 httpie==3.2.1
+
+#Flask-Talisman
+Flask==2.1.2
+Flask-Talisman==0.8.1   # Add this line
+Flask-Cors==3.0.1
+
