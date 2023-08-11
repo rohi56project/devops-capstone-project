@@ -8,10 +8,38 @@ import sys
 from flask import Flask
 from service import config
 from service.common import log_handlers
+from flask_talisman import Talisman
+from flask_cors import CORS
 
 # Create Flask application
 app = Flask(__name__)
 app.config.from_object(config)
+
+talisman = Talisman(
+    app,
+    content_security_policy={
+        "default-src": "'self'",
+        "object-src": "'none'",
+    },
+    referrer_policy="strict-origin-when-cross-origin",
+    feature_policy={
+        "geolocation": "'none'",
+        "midi": "'none'",
+        "notifications": "'none'",
+        "push": "'none'",
+        "sync-xhr": "'none'",
+        "microphone": "'none'",
+        "camera": "'none'",
+        "magnetometer": "'none'",
+        "gyroscope": "'none'",
+        "speaker": "'none'",
+        "vibrate": "'none'",
+        "fullscreen": "'none'",
+        "payment": "'none'",
+    },
+)
+
+cors = CORS(app)
 
 # Import the routes After the Flask app is created
 # pylint: disable=wrong-import-position, cyclic-import, wrong-import-order
