@@ -119,6 +119,8 @@ Please only use these commands for working stand-alone on your own computer with
     ```bash
     $ make clustertasks
     ```
+4.  
+    ![Build Status](https://github.com/rohi56project/devops-capstone-project/.github/workflows/ci-build.yaml/badge.svg)
 
 You can now perform Tekton development locally, just like in the Cloud IDE lab environment.
 
